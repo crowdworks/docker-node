@@ -1,13 +1,14 @@
-FROM node:5.10-slim
+FROM node:9.2.0-alpine
 
-RUN apt-get update && apt-get -y install bzip2
+USER root
+RUN set -x \
+    && apk add --no-cache \
+    && bzip2
 
-RUN useradd -m -s /bin/bash node
-RUN echo 'node:password' | chpasswd
 RUN mkdir -p /var/opt/app
 
 USER node
 
 WORKDIR /var/opt/app
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
