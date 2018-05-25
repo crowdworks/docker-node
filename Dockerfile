@@ -1,4 +1,4 @@
-FROM node:9.5.0-alpine
+FROM node:8.11.1-alpine
 
 USER root
 RUN set -x \
