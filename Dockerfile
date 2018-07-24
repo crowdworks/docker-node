@@ -2,7 +2,8 @@ FROM node:8.11.1-alpine
 
 USER root
 RUN set -x \
-    && apk add --no-cache \
+    && apk update\
+    && apk add --no-cache git openssh\
     && bzip2
 
 RUN mkdir -p /var/opt/app
